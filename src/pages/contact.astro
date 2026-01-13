@@ -1,0 +1,158 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import SectionTitle from '@components/ui/SectionTitle.astro';
+import Card from '@components/ui/Card.astro';
+import Button from '@components/ui/Button.astro';
+import { siteConfig } from '@config/site';
+
+type AvailabilitySlot = {
+  day: string;
+  time: string;
+  focus: string;
+};
+
+const availability: AvailabilitySlot[] = [
+  {
+    day: 'Lunes a viernes',
+    time: '6:00 am - 9:00 am · 4:00 pm - 8:00 pm',
+    focus: 'Colegio Experimental UNSAAC · CAR Cusco',
+  },
+  {
+    day: 'Sábados',
+    time: '7:00 am - 12:00 pm',
+    focus: 'Talleres personalizados y sesiones comunitarias',
+  },
+];
+
+---
+
+<BaseLayout
+  title="Contacto | Angiely Hinojosa"
+  description="Agenda asesorías, talleres o proyectos con Angiely Hinojosa, estudiante de Educación Física en la UNSAAC."
+>
+  <section class="section-padding">
+    <div class="container grid gap-12 lg:grid-cols-[1fr_1.2fr] lg:items-start">
+      <div class="flex flex-col gap-8">
+        <SectionTitle
+          eyebrow="Contacto"
+          align="left"
+          title="Construyamos experiencias de movimiento a tu medida"
+          subtitle={`Cuéntame qué necesitas y diseñaremos juntas la mejor ruta para tu institución, equipo o familia.`}
+          class="!text-left"
+        />
+
+        <Card padding="lg" class="bg-white">
+          <div class="flex flex-col gap-6">
+            <h3 class="text-xl font-semibold text-slate-900">Líneas directas</h3>
+            <div class="grid gap-4 text-sm text-slate-600">
+              <a href={siteConfig.links.email} class="flex items-center gap-3 rounded-2xl border border-slate-200 px-4 py-3 transition hover:border-primary-200 hover:text-primary-600">
+                <span class="badge-pill border-primary-100 bg-primary-50 text-xs font-semibold text-primary-600">Email</span>
+                angiely.hinojosa@unsaac.edu.pe
+              </a>
+              <a href={siteConfig.links.whatsapp} target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 rounded-2xl border border-slate-200 px-4 py-3 transition hover:border-primary-200 hover:text-primary-600">
+                <span class="badge-pill border-primary-100 bg-primary-50 text-xs font-semibold text-primary-600">WhatsApp</span>
+                +51 999 999 999
+              </a>
+              <a href={siteConfig.links.linkedin} target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 rounded-2xl border border-slate-200 px-4 py-3 transition hover:border-primary-200 hover:text-primary-600">
+                <span class="badge-pill border-primary-100 bg-primary-50 text-xs font-semibold text-primary-600">LinkedIn</span>
+                linkedin.com/in/angiely-hinojosa
+              </a>
+              <a href={siteConfig.links.instagram} target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 rounded-2xl border border-slate-200 px-4 py-3 transition hover:border-primary-200 hover:text-primary-600">
+                <span class="badge-pill border-primary-100 bg-primary-50 text-xs font-semibold text-primary-600">Instagram</span>
+                @angiely.fisica
+              </a>
+            </div>
+          </div>
+        </Card>
+
+        <Card padding="lg" class="bg-slate-900 text-white">
+          <h3 class="text-xl font-semibold">Disponibilidad habitual</h3>
+          <ul class="mt-4 space-y-4 text-sm text-slate-200">
+            {availability.map((slot: AvailabilitySlot) => (
+              <li class="rounded-2xl border border-white/10 bg-white/5 px-4 py-4">
+                <p class="font-semibold text-white">{slot.day}</p>
+                <p>{slot.time}</p>
+                <p class="text-xs uppercase tracking-[0.3em] text-primary-200">{slot.focus}</p>
+              </li>
+            ))}
+          </ul>
+        </Card>
+      </div>
+
+      <Card padding="lg" class="bg-white shadow-xl">
+        <h3 class="text-2xl font-bold text-slate-900">Agenda una sesión virtual o presencial</h3>
+        <p class="mt-3 text-sm text-slate-600">
+          Responde este formulario y te escribiré en menos de 24 horas para coordinar detalles, objetivos y disponibilidad.
+        </p>
+        <form
+          name="asesoria"
+          method="POST"
+          data-netlify="true"
+          netlify-honeypot="bot-field"
+          class="mt-8 space-y-5"
+        >
+          <input type="hidden" name="form-name" value="asesoria" />
+          <p class="hidden">
+            <label>
+              ¿Eres un robot?
+              <input name="bot-field" />
+            </label>
+          </p>
+          <div class="grid gap-4 md:grid-cols-2">
+            <label class="flex flex-col gap-2 text-sm font-medium text-slate-700">
+              Nombre completo
+              <input
+                type="text"
+                name="nombre"
+                required
+                class="rounded-2xl border border-slate-200 px-4 py-3 text-sm text-slate-900 shadow-sm transition focus:border-primary-400 focus:outline-none focus:ring-2 focus:ring-primary-200"
+                placeholder="María Quispe"
+              />
+            </label>
+            <label class="flex flex-col gap-2 text-sm font-medium text-slate-700">
+              Correo electrónico
+              <input
+                type="email"
+                name="email"
+                required
+                class="rounded-2xl border border-slate-200 px-4 py-3 text-sm text-slate-900 shadow-sm transition focus:border-primary-400 focus:outline-none focus:ring-2 focus:ring-primary-200"
+                placeholder="tu@correo.com"
+              />
+            </label>
+          </div>
+          <label class="flex flex-col gap-2 text-sm font-medium text-slate-700">
+            Tipo de proyecto
+            <select
+              name="tipo"
+              required
+              class="rounded-2xl border border-slate-200 px-4 py-3 text-sm text-slate-900 shadow-sm transition focus:border-primary-400 focus:outline-none focus:ring-2 focus:ring-primary-200"
+            >
+              <option value="">Selecciona una opción</option>
+              <option value="institucional">Programa para institución educativa</option>
+              <option value="equipo">Preparación para equipo deportivo</option>
+              <option value="personal">Entrenamiento personalizado</option>
+              <option value="taller">Taller o evento especial</option>
+            </select>
+          </label>
+          <label class="flex flex-col gap-2 text-sm font-medium text-slate-700">
+            ¿Cómo puedo ayudarte?
+            <textarea
+              name="mensaje"
+              rows="5"
+              required
+              class="rounded-2xl border border-slate-200 px-4 py-3 text-sm text-slate-900 shadow-sm transition focus:border-primary-400 focus:outline-none focus:ring-2 focus:ring-primary-200"
+              placeholder="Cuéntame sobre tus objetivos, tiempos y número de participantes"
+            ></textarea>
+          </label>
+          <label class="flex items-center gap-3 text-sm text-slate-600">
+            <input type="checkbox" name="boletin" class="h-4 w-4 rounded border-slate-300 text-primary-500 focus:ring-primary-500" />
+            Deseo recibir recursos y tips mensuales sobre actividad física y bienestar.
+          </label>
+          <Button type="submit" variant="primary" size="lg" class="w-full">
+            Enviar solicitud
+          </Button>
+        </form>
+      </Card>
+    </div>
+  </section>
+</BaseLayout>

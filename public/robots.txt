@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://angiely-hinojosa.com/sitemap-index.xml

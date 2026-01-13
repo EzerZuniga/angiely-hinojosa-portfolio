@@ -1,0 +1,118 @@
+---
+import type { MarkdownInstance } from 'astro';
+import BaseLayout from '@layouts/BaseLayout.astro';
+import SectionTitle from '@components/ui/SectionTitle.astro';
+import Card from '@components/ui/Card.astro';
+import Button from '@components/ui/Button.astro';
+
+type ExperienceFrontmatter = {
+  title: string;
+  date?: string;
+};
+
+type EnrichedExperience = MarkdownInstance<ExperienceFrontmatter> & {
+  date: Date | null;
+  displayDate: string;
+};
+
+const experienceEntries = await Astro.glob<ExperienceFrontmatter>(
+  '../content/experience/*.md',
+);
+const dateFormatter = new Intl.DateTimeFormat('es-PE', {
+  month: 'long',
+  year: 'numeric',
+});
+
+const experiences: EnrichedExperience[] = experienceEntries
+  .map((entry: MarkdownInstance<ExperienceFrontmatter>): EnrichedExperience => {
+    const date = entry.frontmatter.date ? new Date(entry.frontmatter.date) : null;
+    return {
+      ...entry,
+      date,
+      displayDate: date ? dateFormatter.format(date) : 'Experiencia',
+    };
+  })
+  .sort((a: EnrichedExperience, b: EnrichedExperience) => {
+    if (!a.date || !b.date) return 0;
+    return b.date.getTime() - a.date.getTime();
+  });
+
+type FocusArea = {
+  title: string;
+  detail: string;
+};
+
+const focusAreas: FocusArea[] = [
+  {
+    title: 'Preparación física juvenil',
+    detail: 'Microciclos para atletismo, coordinación y fuerza en edades escolares y juveniles.',
+  },
+  {
+    title: 'Educación física inclusiva',
+    detail: 'Adaptación de sesiones para diversos ritmos de aprendizaje, promoviendo el juego cooperativo.',
+  },
+  {
+    title: 'Salud y hábitos comunitarios',
+    detail: 'Festivales, caminatas saludables y talleres familiares sobre nutrición y bienestar.',
+  },
+];
+
+---
+
+<BaseLayout
+  title="Experiencia | Angiely Hinojosa"
+  description="Explora las prácticas profesionales, voluntariados y proyectos comunitarios de Angiely Hinojosa, estudiante de Educación Física en la UNSAAC."
+>
+  <section class="section-padding">
+    <div class="container flex flex-col gap-16">
+      <SectionTitle
+        eyebrow="Experiencia"
+        title="Metodología vivencial, resultados medibles"
+        subtitle="Integro evaluaciones funcionales, estrategias cooperativas y acompañamiento cercano para construir procesos sostenibles."
+      />
+
+      <div class="grid gap-6 md:grid-cols-3">
+        {focusAreas.map((item: FocusArea) => (
+          <Card hover padding="lg" class="bg-white">
+            <h3 class="text-xl font-semibold text-slate-900">{item.title}</h3>
+            <p class="mt-3 text-base text-slate-600">{item.detail}</p>
+          </Card>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section-padding bg-slate-900 text-white">
+    <div class="container flex flex-col gap-12">
+      <SectionTitle
+        eyebrow="Prácticas destacadas"
+        title="Experiencias que impulsan a la comunidad"
+        subtitle="Registro y sistematización de cada proyecto para seguir mejorando."
+        align="left"
+        class="!text-left"
+      />
+
+      <div class="grid gap-6">
+        {experiences.map(({ frontmatter, Content, displayDate }: EnrichedExperience) => (
+          <Card as="article" padding="lg" class="bg-white text-slate-900">
+            <div class="flex flex-col gap-6 md:flex-row md:items-start">
+              <div class="flex w-full flex-col gap-2 md:w-48">
+                <span class="text-sm font-semibold uppercase tracking-[0.3em] text-primary-500">
+                  {displayDate}
+                </span>
+                <h3 class="text-2xl font-bold text-slate-900">{frontmatter.title}</h3>
+              </div>
+              <div class="prose-primary flex-1 text-slate-600">
+                <Content />
+              </div>
+            </div>
+          </Card>
+        ))}
+      </div>
+
+      <Button href="/contact" size="lg" variant="outline" class="self-start border-white/40 text-white hover:bg-white/10">
+        Coordinar un proyecto deportivo o educativo
+      </Button>
+    </div>
+  </section>
+</BaseLayout>

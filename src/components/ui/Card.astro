@@ -1,0 +1,44 @@
+---
+interface Props {
+  class?: string;
+  hover?: boolean;
+  as?: 'div' | 'article' | 'section';
+  padding?: 'none' | 'sm' | 'md' | 'lg';
+}
+
+const {
+  class: className = '',
+  hover = false,
+  as = 'div',
+  padding = 'md',
+} = Astro.props as Props;
+
+const baseStyles =
+  'relative rounded-3xl border border-white/60 bg-white/90 p-0 shadow-lg shadow-gray-900/5 backdrop-blur transition-all duration-300';
+const hoverStyles = hover ? 'hover:-translate-y-1 hover:shadow-xl hover:shadow-primary-500/20' : '';
+const paddingMap = {
+  none: 'p-0',
+  sm: 'p-4 md:p-6',
+  md: 'p-6 md:p-8',
+  lg: 'p-8 md:p-12',
+} as const;
+
+const classes = [baseStyles, hoverStyles, paddingMap[padding], className]
+  .filter(Boolean)
+  .join(' ');
+
+---
+
+{as === 'article' ? (
+  <article class={classes}>
+    <slot />
+  </article>
+) : as === 'section' ? (
+  <section class={classes}>
+    <slot />
+  </section>
+) : (
+  <div class={classes}>
+    <slot />
+  </div>
+)}

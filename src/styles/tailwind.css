@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-primary: 14 165 233;
+  }
+
+  body {
+    @apply text-slate-900 antialiased;
+  }
+}
+
+@layer components {
+  .section-padding {
+    @apply py-20 md:py-28;
+  }
+
+  .prose-primary p {
+    @apply text-lg text-slate-600 leading-relaxed;
+  }
+
+  .badge-pill {
+    @apply inline-flex items-center gap-2 rounded-full border border-primary-200 bg-primary-50/80 px-4 py-1 text-sm font-medium text-primary-700;
+  }
+}

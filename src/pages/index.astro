@@ -1,0 +1,202 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Button from '@components/ui/Button.astro';
+import SectionTitle from '@components/ui/SectionTitle.astro';
+import Card from '@components/ui/Card.astro';
+import { siteConfig } from '@config/site';
+
+const highlights = [
+  {
+    title: 'Bienestar integral',
+    description:
+      'Diseño sesiones que equilibran capacidades físicas, salud emocional y hábitos de vida activa.',
+    icon: '🌱',
+  },
+  {
+    title: 'Metodología vivencial',
+    description:
+      'Aprendizaje significativo a través de experiencias lúdicas, cooperativas y contextualizadas.',
+    icon: '🤝',
+  },
+  {
+    title: 'Evaluación con propósito',
+    description:
+      'Seguimiento personalizado con indicadores claros para acompañar el progreso de cada estudiante.',
+    icon: '📊',
+  },
+];
+
+const stats = [
+  { value: '200+', label: 'Estudiantes acompañados', detail: 'Entre primaria y programas juveniles.' },
+  { value: '12', label: 'Eventos deportivos guiados', detail: 'Festivales, caminatas y jornadas saludables.' },
+  { value: '5', label: 'Certificaciones clave', detail: 'Entrenamiento, RCP y planificación curricular.' },
+];
+
+const microPrograms = [
+  {
+    name: 'Rutinas funcionales',
+    focus: 'Fortalecimiento y control motor',
+    duration: '4 semanas',
+  },
+  {
+    name: 'Motricidad creativa',
+    focus: 'Juegos cooperativos y expresión corporal',
+    duration: '8 sesiones',
+  },
+  {
+    name: 'Atletismo juvenil',
+    focus: 'Velocidad, resistencia y técnicas básicas',
+    duration: '6 semanas',
+  },
+];
+
+---
+
+<BaseLayout>
+  <section class="relative overflow-hidden pb-24 pt-28 md:pt-36">
+    <div class="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,#d7f4ff_0,#ffffff_55%)]"></div>
+    <div class="container grid items-center gap-16 lg:grid-cols-[1.1fr_0.9fr]">
+      <div class="flex flex-col gap-8">
+        <span class="badge-pill w-fit border-primary-200 bg-primary-50/70 text-sm font-semibold text-primary-600">
+          {siteConfig.role} · {siteConfig.institution}
+        </span>
+        <h1 class="text-4xl font-black leading-tight text-slate-900 md:text-6xl">
+          Promuevo el movimiento consciente y el bienestar en Cusco.
+        </h1>
+        <p class="max-w-2xl text-lg text-slate-600 md:text-xl">
+          Soy {siteConfig.name}, estudiante de Educación Física en la UNSAAC. Acompaño procesos educativos,
+          deportivos y de vida saludable con un enfoque humano, inclusivo y basado en evidencia.
+        </p>
+        <div class="flex flex-col gap-4 sm:flex-row">
+          <Button href="/contact" size="lg" variant="primary">
+            Reserva una asesoría inicial
+          </Button>
+          <Button href="/about" size="lg" variant="outline">
+            Conoce mi historia
+          </Button>
+        </div>
+        <div class="grid gap-6 sm:grid-cols-3">
+          {stats.map((stat) => (
+            <Card padding="sm" class="bg-white/80 text-center shadow-md">
+              <p class="text-3xl font-black text-primary-600 md:text-4xl">{stat.value}</p>
+              <p class="text-sm font-semibold uppercase tracking-wide text-slate-500">
+                {stat.label}
+              </p>
+              <p class="text-xs text-slate-500">{stat.detail}</p>
+            </Card>
+          ))}
+        </div>
+      </div>
+
+      <Card as="section" hover padding="lg" class="relative overflow-hidden bg-white/90">
+        <div class="absolute -left-10 top-10 h-36 w-36 rounded-full bg-primary-200/40 blur-3xl"></div>
+        <div class="relative flex flex-col gap-6">
+          <h2 class="text-2xl font-bold text-slate-900">
+            Plan de entrenamiento educativo
+          </h2>
+          <p class="text-base text-slate-600">
+            Sesiones dinámicas con objetivos claros por grupo etario, combinando acondicionamiento físico,
+            habilidades socioemocionales y hábitos saludables.
+          </p>
+          <div class="grid gap-4">
+            {microPrograms.map((program) => (
+              <div class="flex items-center justify-between rounded-2xl border border-primary-100/80 bg-primary-50/60 px-4 py-3 text-sm font-semibold text-primary-700">
+                <div class="flex flex-col">
+                  <span>{program.name}</span>
+                  <span class="text-xs font-medium text-primary-500/80">{program.focus}</span>
+                </div>
+                <span class="rounded-full bg-white/70 px-3 py-1 text-xs text-primary-600">
+                  {program.duration}
+                </span>
+              </div>
+            ))}
+          </div>
+          <p class="text-xs uppercase tracking-[0.3em] text-slate-400">
+            Ajustados a objetivos individuales y grupales
+          </p>
+        </div>
+      </Card>
+    </div>
+  </section>
+
+  <section class="section-padding">
+    <div class="container flex flex-col gap-16">
+      <SectionTitle
+        eyebrow="Enfoque pedagógico"
+        title="Movimiento con sentido, experiencias que inspiran a seguir avanzando"
+        subtitle="Trabajo con metodologías activas, evaluación permanente y un acompañamiento cercano para que cada estudiante descubra su potencial físico y emocional."
+      />
+      <div class="grid gap-6 md:grid-cols-3">
+        {highlights.map((item) => (
+          <Card hover padding="lg" class="bg-white">
+            <div class="flex flex-col gap-4">
+              <span class="text-4xl" aria-hidden="true">{item.icon}</span>
+              <h3 class="text-xl font-semibold text-slate-900">{item.title}</h3>
+              <p class="text-base text-slate-600">{item.description}</p>
+            </div>
+          </Card>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section-padding bg-slate-900 text-white">
+    <div class="container grid gap-12 lg:grid-cols-[1fr_1.1fr] lg:items-center">
+      <div class="flex flex-col gap-6">
+        <SectionTitle
+          eyebrow="Proyectos recientes"
+          align="left"
+          title="Formo comunidades activas y saludables"
+          subtitle="Explora mis prácticas profesionales, voluntariados y talleres colaborativos."
+          class="!text-left"
+        />
+        <div class="flex flex-wrap gap-3 text-sm font-semibold text-slate-200">
+          <span class="badge-pill border-white/10 bg-white/5">Entrenamiento juvenil</span>
+          <span class="badge-pill border-white/10 bg-white/5">Educación inclusiva</span>
+          <span class="badge-pill border-white/10 bg-white/5">Salud comunitaria</span>
+        </div>
+        <div class="flex flex-col gap-4 sm:flex-row">
+          <Button href="/experience" size="lg" variant="outline" class="border-white/40 text-white hover:bg-white/10">
+            Ver experiencia completa
+          </Button>
+          <Button href="/skills" size="lg" variant="ghost" class="text-slate-200 hover:bg-white/10">
+            Ver habilidades
+          </Button>
+        </div>
+      </div>
+
+      <Card as="article" padding="lg" class="bg-white text-slate-900">
+        <div class="flex flex-col gap-6">
+          <div class="flex items-center gap-3 text-sm font-semibold text-primary-600">
+            <span class="h-2 w-2 rounded-full bg-primary-500"></span>
+            Sesión destacada · Atletismo juvenil Cusco
+          </div>
+          <h3 class="text-2xl font-bold text-slate-900">
+            Circuito integral: velocidad, coordinación y resiliencia
+          </h3>
+          <p class="text-base text-slate-600">
+            Elaboré un programa de seis estaciones combinando trabajo técnico, retos cooperativos y pausas
+            activas. Evaluamos el progreso semanal con indicadores claros y retroalimentación individual.
+          </p>
+          <ul class="grid gap-3 text-sm text-slate-600">
+            <li class="flex items-start gap-3">
+              <span class="mt-1 h-2 w-2 rounded-full bg-primary-500"></span>
+              Registro audiovisual para análisis de técnica de carrera.
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="mt-1 h-2 w-2 rounded-full bg-primary-500"></span>
+              Juegos cooperativos para reforzar cohesión grupal y liderazgo.
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="mt-1 h-2 w-2 rounded-full bg-primary-500"></span>
+              Orientaciones de recuperación activa y alimentación post sesión.
+            </li>
+          </ul>
+          <Button href="/contact" size="md" variant="primary" class="w-full">
+            Diseñemos una experiencia para tu institución
+          </Button>
+        </div>
+      </Card>
+    </div>
+  </section>
+</BaseLayout>
