@@ -1,5 +1,5 @@
 ---
-import { siteConfig } from '@config/site';
+import { siteConfig } from "@config/site";
 
 interface Props {
   title?: string;
@@ -17,7 +17,7 @@ const {
 
 const siteOrigin = Astro.site ?? new URL(siteConfig.url);
 const canonicalURL = new URL(Astro.url.pathname, siteOrigin).toString();
-const socialImageURL = image.startsWith('http')
+const socialImageURL = image.startsWith("http")
   ? image
   : new URL(image, siteOrigin).toString();
 ---
@@ -26,15 +26,17 @@ const socialImageURL = image.startsWith('http')
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="generator" content={Astro.generator} />
 
+<!-- Primary Meta Tags -->
 <title>{title}</title>
+<meta name="title" content={title} />
 <meta name="description" content={description} />
 <link rel="canonical" href={canonicalURL} />
-<meta name="keywords" content={siteConfig.keywords?.join(', ')} />
+<meta name="keywords" content={siteConfig.keywords?.join(", ")} />
 <meta name="author" content={siteConfig.name} />
 <meta name="geo.placename" content={siteConfig.location} />
 
 <!-- Open Graph / Facebook -->
-<meta property="og:type" content={article ? 'article' : 'website'} />
+<meta property="og:type" content={article ? "article" : "website"} />
 <meta property="og:url" content={canonicalURL} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
@@ -43,11 +45,26 @@ const socialImageURL = image.startsWith('http')
 <meta property="og:locale" content="es_ES" />
 
 <!-- Twitter -->
-<meta property="twitter:card" content="summary_large_image" />
-<meta property="twitter:url" content={canonicalURL} />
-<meta property="twitter:title" content={title} />
-<meta property="twitter:description" content={description} />
-<meta property="twitter:image" content={socialImageURL} />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:url" content={canonicalURL} />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={socialImageURL} />
+
+<!-- Theme Color -->
+<meta name="theme-color" content="#0ea5e9" />
+<meta name="msapplication-TileColor" content="#0ea5e9" />
+
+<!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+
+<!-- Preconnect to external resources -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+<!-- DNS Prefetch -->
+<link rel="dns-prefetch" href="https://fonts.googleapis.com" />
 
 <!-- Favicon -->
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />

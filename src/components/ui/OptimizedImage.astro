@@ -1,0 +1,27 @@
+/** * Componente de imagen optimizada para Astro * Proporciona optimización
+automática y lazy loading */
+interface Props { src: string; alt: string; width?: number; height?: number; class?:
+string; loading?: 'lazy' | 'eager'; decoding?: 'async' | 'auto' | 'sync'; sizes?:
+string; quality?: number; } const { src, alt, width, height, class: className = '',
+loading = 'lazy', decoding = 'async', sizes, quality = 80, } = Astro.props; // Validación
+de alt text (accesibilidad) if (!alt || alt.trim() === '') { console.warn(`⚠️ Imagen
+sin alt text: ${src}`); }
+
+<img
+  src={src}
+  alt={alt}
+  width={width}
+  height={height}
+  class={className}
+  loading={loading}
+  decoding={decoding}
+  sizes={sizes}
+/>
+
+<style>
+  img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+</style>

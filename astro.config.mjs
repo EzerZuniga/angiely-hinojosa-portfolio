@@ -1,8 +1,23 @@
-import { defineConfig } from 'astro/config';
-import tailwind from '@astrojs/tailwind';
+import { defineConfig } from "astro/config";
+import sitemap from "@astrojs/sitemap";
+import tailwind from "@astrojs/tailwind";
 
-// https://astro.build/config
 export default defineConfig({
-  integrations: [tailwind()],
-  site: 'https://angiely-hinojosa.com',
+  integrations: [
+    tailwind(),
+    sitemap({
+      i18n: {
+        defaultLocale: "es",
+        locales: {
+          es: "es-PE",
+        },
+      },
+    }),
+  ],
+  site: "https://angiely-hinojosa.com",
+  trailingSlash: "ignore",
+  build: {
+    inlineStylesheets: "auto",
+  },
+  compressHTML: true,
 });

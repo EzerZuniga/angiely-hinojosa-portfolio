@@ -1,23 +1,26 @@
 ---
 const navItems = [
-  { name: 'Inicio', href: '/' },
-  { name: 'Sobre mí', href: '/about' },
-  { name: 'Experiencia', href: '/experience' },
-  { name: 'Habilidades', href: '/skills' },
-  { name: 'Contacto', href: '/contact' },
+  { name: "Inicio", href: "/" },
+  { name: "Sobre mí", href: "/about" },
+  { name: "Experiencia", href: "/experience" },
+  { name: "Habilidades", href: "/skills" },
+  { name: "Contacto", href: "/contact" },
 ];
 
 const currentPath = Astro.url.pathname;
 ---
-<header class="sticky top-0 z-50 w-full border-b border-white/60 bg-white/90 shadow-sm backdrop-blur-xl">
+
+<header
+  class="sticky top-0 z-50 w-full border-b border-white/60 bg-white/90 shadow-sm backdrop-blur-xl"
+>
   <nav class="container flex flex-wrap items-center justify-between gap-6 py-4">
     <a href="/" class="flex items-center gap-3 text-left">
       <img
         src="/images/logo1.png"
         alt="Angiely Hinojosa"
-        width="160"
-        height="48"
-        class="h-12 w-auto object-contain"
+        width="200"
+        height="60"
+        class="h-14 w-auto object-contain"
         loading="eager"
         decoding="async"
       />
@@ -30,28 +33,39 @@ const currentPath = Astro.url.pathname;
       aria-controls="mobile-menu"
       data-mobile-menu-button
     >
-      <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+      <svg
+        class="h-5 w-5"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M4 6h16M4 12h16M4 18h16"></path>
       </svg>
       <span class="sr-only">Abrir navegación</span>
     </button>
 
     <div class="hidden flex-1 items-center justify-end gap-10 md:flex">
       <ul class="flex items-center gap-8 text-sm font-semibold text-slate-600">
-        {navItems.map((item) => (
-          <li>
-            <a
-              href={item.href}
-              class={`relative inline-flex items-center gap-2 transition-colors duration-150 hover:text-primary-600 ${
-                currentPath === item.href
-                  ? 'text-primary-600 after:absolute after:-bottom-2 after:left-0 after:h-[2px] after:w-full after:rounded-full after:bg-primary-500'
-                  : ''
-              }`}
-            >
-              {item.name}
-            </a>
-          </li>
-        ))}
+        {
+          navItems.map((item) => (
+            <li>
+              <a
+                href={item.href}
+                class={`relative inline-flex items-center gap-2 transition-colors duration-150 hover:text-primary-600 ${
+                  currentPath === item.href
+                    ? "text-primary-600 after:absolute after:-bottom-2 after:left-0 after:h-[2px] after:w-full after:rounded-full after:bg-primary-500"
+                    : ""
+                }`}
+              >
+                {item.name}
+              </a>
+            </li>
+          ))
+        }
       </ul>
       <a
         href="/contact"
@@ -71,9 +85,9 @@ const currentPath = Astro.url.pathname;
         <img
           src="/images/logo1.png"
           alt="Angiely Hinojosa"
-          width="160"
-          height="48"
-          class="h-12 w-auto object-contain drop-shadow"
+          width="200"
+          height="60"
+          class="h-14 w-auto object-contain"
           loading="lazy"
           decoding="async"
         />
@@ -83,31 +97,54 @@ const currentPath = Astro.url.pathname;
           class="flex h-11 w-11 items-center justify-center rounded-full bg-white/15 text-white ring-1 ring-white/30 transition hover:bg-white/25 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
           data-mobile-menu-close
         >
-          <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          <svg
+            class="h-5 w-5"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M6 18L18 6M6 6l12 12"></path>
           </svg>
         </button>
       </div>
 
-      <nav class="mt-6 flex flex-1 flex-col justify-between overflow-y-auto text-white">
+      <nav
+        class="mt-6 flex flex-1 flex-col justify-between overflow-y-auto text-white"
+      >
         <ul class="space-y-3 text-lg font-semibold">
-          {navItems.map((item) => (
-            <li>
-              <a
-                href={item.href}
-                class={`flex items-center justify-between rounded-xl px-3 py-2 transition duration-150 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white ${
-                  currentPath === item.href
-                    ? 'bg-white/15 text-white ring-1 ring-white/40'
-                    : 'hover:bg-white/10 hover:text-white'
-                }`}
-              >
-                <span>{item.name}</span>
-                <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-                </svg>
-              </a>
-            </li>
-          ))}
+          {
+            navItems.map((item) => (
+              <li>
+                <a
+                  href={item.href}
+                  class={`flex items-center justify-between rounded-xl px-3 py-2 transition duration-150 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white ${
+                    currentPath === item.href
+                      ? "bg-white/15 text-white ring-1 ring-white/40"
+                      : "hover:bg-white/10 hover:text-white"
+                  }`}
+                >
+                  <span>{item.name}</span>
+                  <svg
+                    class="h-4 w-4"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M9 5l7 7-7 7"
+                    />
+                  </svg>
+                </a>
+              </li>
+            ))
+          }
         </ul>
 
         <a
@@ -123,35 +160,35 @@ const currentPath = Astro.url.pathname;
 </header>
 
 <script is:inline>
-  const menu = document.querySelector('[data-mobile-menu]');
-  const openButton = document.querySelector('[data-mobile-menu-button]');
-  const closeButton = document.querySelector('[data-mobile-menu-close]');
+  const menu = document.querySelector("[data-mobile-menu]");
+  const openButton = document.querySelector("[data-mobile-menu-button]");
+  const closeButton = document.querySelector("[data-mobile-menu-close]");
 
   const toggleMenu = (open) => {
     if (!menu || !openButton) return;
-    const isOpen = open ?? menu.hasAttribute('hidden');
-    menu.toggleAttribute('hidden', !isOpen);
-    openButton.setAttribute('aria-expanded', String(isOpen));
+    const isOpen = open ?? menu.hasAttribute("hidden");
+    menu.toggleAttribute("hidden", !isOpen);
+    openButton.setAttribute("aria-expanded", String(isOpen));
     if (isOpen) {
       menu.animate(
         [
-          { opacity: 0, transform: 'translateY(-8px)' },
-          { opacity: 1, transform: 'translateY(0)' },
+          { opacity: 0, transform: "translateY(-8px)" },
+          { opacity: 1, transform: "translateY(0)" },
         ],
-        { duration: 180, easing: 'ease-out' }
+        { duration: 180, easing: "ease-out" }
       );
     }
   };
 
-  openButton?.addEventListener('click', () => toggleMenu());
-  closeButton?.addEventListener('click', () => toggleMenu(false));
+  openButton?.addEventListener("click", () => toggleMenu());
+  closeButton?.addEventListener("click", () => toggleMenu(false));
 
-  menu?.querySelectorAll('a').forEach((link) => {
-    link.addEventListener('click', () => toggleMenu(false));
+  menu?.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => toggleMenu(false));
   });
 
-  document.addEventListener('click', (event) => {
-    if (!menu || menu.hasAttribute('hidden')) return;
+  document.addEventListener("click", (event) => {
+    if (!menu || menu.hasAttribute("hidden")) return;
     const target = event.target;
     if (
       target instanceof Element &&
