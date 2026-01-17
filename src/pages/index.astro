@@ -1,202 +1,317 @@
 ---
-import BaseLayout from '@layouts/BaseLayout.astro';
-import Button from '@components/ui/Button.astro';
-import SectionTitle from '@components/ui/SectionTitle.astro';
-import Card from '@components/ui/Card.astro';
-import { siteConfig } from '@config/site';
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Button from "@components/ui/Button.astro";
+import SectionTitle from "@components/ui/SectionTitle.astro";
+import Card from "@components/ui/Card.astro";
+import OptimizedImage from "@components/ui/OptimizedImage.astro";
 
 const highlights = [
   {
-    title: 'Bienestar integral',
+    title: "Formación Académica",
     description:
-      'Diseño sesiones que equilibran capacidades físicas, salud emocional y hábitos de vida activa.',
-    icon: '🌱',
+      "Estudiante de 4to semestre en la UNSAAC, combinando teoría pedagógica con práctica deportiva.",
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.436 60.436 0 0 0-.491 6.347A48.627 48.627 0 0 1 12 20.904a48.627 48.627 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.57 50.57 0 0 0-2.658-.813A59.905 59.905 0 0 1 12 3.493a59.902 59.902 0 0 1 10.499 5.216 50.59 50.59 0 0 0-2.658.812m-15.482 0a50.59 50.59 0 0 0-2.658.812 59.905 59.905 0 0 1 10.499 5.216 50.59 50.59 0 0 0-2.658-.812m-15.482 0a50.59 50.59 0 0 0-2.658.812 59.906 59.906 0 0 1 10.499 5.216h.001M20.25 8.25v2.25" /></svg>`,
   },
   {
-    title: 'Metodología vivencial',
+    title: "Promoción de la Salud",
     description:
-      'Aprendizaje significativo a través de experiencias lúdicas, cooperativas y contextualizadas.',
-    icon: '🤝',
+      "Fomento de estilos de vida activos y saludables para combatir el sedentarismo en la comunidad.",
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" /></svg>`,
   },
   {
-    title: 'Evaluación con propósito',
+    title: "Didáctica Deportiva",
     description:
-      'Seguimiento personalizado con indicadores claros para acompañar el progreso de cada estudiante.',
-    icon: '📊',
+      "Aprendizaje de metodologías innovadoras para la enseñanza de deportes y educación física.",
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 18.75h-9m9 0a3 3 0 0 1 3 3h-15a3 3 0 0 1 3-3m9 0v-3.375c0-.621-.503-1.125-1.125-1.125h-.871M7.5 18.75v-3.375c0-.621.504-1.125 1.125-1.125h.872m5.007 0H9.497m5.007 0a7.454 7.454 0 0 1-.982-3.172M9.497 14.25a7.454 7.454 0 0 0.981-3.172M5.25 4.236c-.982.143-1.954.317-2.916.52A6.003 6.003 0 0 0 7.73 9.728M5.25 4.236V4.5c0 2.108.961 3.99 2.48 5.228M5.25 4.236V2.721C7.456 2.41 9.71 2.25 12 2.25c2.291 0 4.545.16 6.75.47v1.516M7.73 9.728a6.726 6.726 0 0 0 2.748 1.35m11.372-5.362a6.002 6.002 0 0 1-3.955-4.972M21.652 4.756V4.5a6.726 6.726 0 0 1-3.922 6.578m3.922-1.822v-1.516" /></svg>`,
   },
 ];
-
-const stats = [
-  { value: '200+', label: 'Estudiantes acompañados', detail: 'Entre primaria y programas juveniles.' },
-  { value: '12', label: 'Eventos deportivos guiados', detail: 'Festivales, caminatas y jornadas saludables.' },
-  { value: '5', label: 'Certificaciones clave', detail: 'Entrenamiento, RCP y planificación curricular.' },
-];
-
-const microPrograms = [
-  {
-    name: 'Rutinas funcionales',
-    focus: 'Fortalecimiento y control motor',
-    duration: '4 semanas',
-  },
-  {
-    name: 'Motricidad creativa',
-    focus: 'Juegos cooperativos y expresión corporal',
-    duration: '8 sesiones',
-  },
-  {
-    name: 'Atletismo juvenil',
-    focus: 'Velocidad, resistencia y técnicas básicas',
-    duration: '6 semanas',
-  },
-];
-
 ---
 
 <BaseLayout>
-  <section class="relative overflow-hidden pb-24 pt-28 md:pt-36">
-    <div class="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,#d7f4ff_0,#ffffff_55%)]"></div>
-    <div class="container grid items-center gap-16 lg:grid-cols-[1.1fr_0.9fr]">
-      <div class="flex flex-col gap-8">
-        <span class="badge-pill w-fit border-primary-200 bg-primary-50/70 text-sm font-semibold text-primary-600">
-          {siteConfig.role} · {siteConfig.institution}
-        </span>
-        <h1 class="text-4xl font-black leading-tight text-slate-900 md:text-6xl">
-          Promuevo el movimiento consciente y el bienestar en Cusco.
-        </h1>
-        <p class="max-w-2xl text-lg text-slate-600 md:text-xl">
-          Soy {siteConfig.name}, estudiante de Educación Física en la UNSAAC. Acompaño procesos educativos,
-          deportivos y de vida saludable con un enfoque humano, inclusivo y basado en evidencia.
-        </p>
-        <div class="flex flex-col gap-4 sm:flex-row">
-          <Button href="/contact" size="lg" variant="primary">
-            Reserva una asesoría inicial
-          </Button>
-          <Button href="/about" size="lg" variant="outline">
-            Conoce mi historia
-          </Button>
-        </div>
-        <div class="grid gap-6 sm:grid-cols-3">
-          {stats.map((stat) => (
-            <Card padding="sm" class="bg-white/80 text-center shadow-md">
-              <p class="text-3xl font-black text-primary-600 md:text-4xl">{stat.value}</p>
-              <p class="text-sm font-semibold uppercase tracking-wide text-slate-500">
-                {stat.label}
-              </p>
-              <p class="text-xs text-slate-500">{stat.detail}</p>
-            </Card>
-          ))}
+  <!-- Hero Section Professional - Naisser Style Match -->
+  <section
+    class="relative flex min-h-[75dvh] sm:min-h-[85dvh] w-full flex-col items-center justify-center overflow-hidden bg-[#2c3e50] px-4 py-8 sm:py-12"
+  >
+    <!-- Background Elements matched to reference -->
+    <div
+      class="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-[#4b6cb7] via-[#2c3e50] to-[#1a2639] opacity-80"
+    >
+    </div>
+    <!-- Increased opacity for pattern visibility -->
+    <div
+      class="absolute inset-0 -z-10 opacity-10 bg-[url('/images/hero-pattern.svg')] mix-blend-overlay"
+    >
+    </div>
+
+    <!-- Main Content Container - Compact Sizes -->
+    <div
+      class="container relative z-10 flex flex-col items-center gap-4 sm:gap-6 md:gap-8"
+    >
+      <!-- Profile Image -->
+      <div class="relative group">
+        <div
+          class="h-32 w-32 sm:h-40 sm:w-40 md:h-56 md:w-56 overflow-hidden rounded-full border-4 border-white shadow-2xl bg-white"
+        >
+          <OptimizedImage
+            src="/images/perfil.png"
+            alt="Angiely Rosalía Hinojosa Corredor"
+            class="h-full w-full object-cover"
+            loading="eager"
+            decoding="sync"
+          />
         </div>
       </div>
 
-      <Card as="section" hover padding="lg" class="relative overflow-hidden bg-white/90">
-        <div class="absolute -left-10 top-10 h-36 w-36 rounded-full bg-primary-200/40 blur-3xl"></div>
-        <div class="relative flex flex-col gap-6">
-          <h2 class="text-2xl font-bold text-slate-900">
-            Plan de entrenamiento educativo
-          </h2>
-          <p class="text-base text-slate-600">
-            Sesiones dinámicas con objetivos claros por grupo etario, combinando acondicionamiento físico,
-            habilidades socioemocionales y hábitos saludables.
-          </p>
-          <div class="grid gap-4">
-            {microPrograms.map((program) => (
-              <div class="flex items-center justify-between rounded-2xl border border-primary-100/80 bg-primary-50/60 px-4 py-3 text-sm font-semibold text-primary-700">
-                <div class="flex flex-col">
-                  <span>{program.name}</span>
-                  <span class="text-xs font-medium text-primary-500/80">{program.focus}</span>
-                </div>
-                <span class="rounded-full bg-white/70 px-3 py-1 text-xs text-primary-600">
-                  {program.duration}
-                </span>
-              </div>
-            ))}
-          </div>
-          <p class="text-xs uppercase tracking-[0.3em] text-slate-400">
-            Ajustados a objetivos individuales y grupales
-          </p>
-        </div>
-      </Card>
+      <!-- Typography Block - Contrast Style -->
+      <div
+        class="flex flex-col items-center text-center gap-2 max-w-2xl mx-auto"
+      >
+        <h1
+          class="flex flex-col items-center font-extrabold tracking-normal leading-none uppercase"
+        >
+          <!-- Name Split Color -->
+          <span
+            class="text-lg sm:text-xl md:text-3xl font-extrabold tracking-wide drop-shadow-md"
+          >
+            <span class="text-white">ANGIELY ROSALÍA</span>
+            <span class="text-[#3498db]">HINOJOSA CORREDOR</span>
+          </span>
+        </h1>
+
+        <p
+          class="mt-3 text-[11px] sm:text-xs md:text-sm text-slate-300 leading-relaxed max-w-lg mx-auto px-4 font-medium"
+        >
+          Soy estudiante de 4to semestre en la UNSAAC, especialista en pedagogía
+          deportiva, recreación y hábitos saludables. Promuevo el bienestar
+          integral y el aprendizaje activo en nuestra comunidad.
+        </p>
+      </div>
+
+      <!-- CTA Button - Smaller -->
+      <div class="pt-2">
+        <a
+          href="#contenido"
+          class="inline-flex items-center justify-center gap-2 px-6 py-2 text-sm md:text-base font-bold tracking-wide !text-white transition-all duration-300 bg-[#3498db] rounded-lg shadow-lg hover:bg-[#2980b9] hover:shadow-none hover:translate-y-[1px] focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 ring-offset-[#2c3e50] no-underline"
+        >
+          Empezar
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-4 w-4 md:h-5 md:w-5"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2.5"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+          </svg>
+        </a>
+      </div>
     </div>
   </section>
 
-  <section class="section-padding">
-    <div class="container flex flex-col gap-16">
+  <!-- Sección de Perfil Profesional (Compacto) -->
+  <div
+    id="contenido"
+    class="bg-white py-10 md:py-16 border-b border-slate-100 scroll-mt-20"
+  >
+    <div class="container mx-auto px-4 md:px-6">
+      <div class="flex flex-col md:flex-row gap-8 md:gap-12 items-center">
+        <!-- Columna Izquierda: Imagen Profesional -->
+        <div class="w-full md:w-5/12 lg:w-4/12 flex justify-center">
+          <div
+            class="relative w-56 aspect-[3/4] md:w-full max-w-[280px] overflow-hidden rounded-xl shadow-xl bg-slate-50 border-4 border-white ring-1 ring-slate-200"
+          >
+            <OptimizedImage
+              src="/images/perfil.png"
+              alt="Angiely Rosalía Hinojosa Corredor"
+              class="w-full h-full object-cover"
+              loading="lazy"
+            />
+          </div>
+        </div>
+
+        <!-- Columna Derecha: Contenido Biográfico -->
+        <div class="w-full md:w-7/12 lg:w-8/12 flex flex-col gap-4 text-left">
+          <div class="relative">
+            <h2
+              class="text-2xl md:text-3xl lg:text-4xl font-black text-[#3498db] mb-1 uppercase tracking-tight leading-tight"
+            >
+              Angiely Rosalía <br class="hidden xl:block" />Hinojosa Corredor
+            </h2>
+            <h3 class="text-lg md:text-xl font-bold text-slate-800">
+              Estudiante de Educación Física - UNSAAC
+            </h3>
+            <div class="h-1 w-20 bg-[#3498db] mt-3 rounded-full"></div>
+          </div>
+
+          <div
+            class="space-y-4 text-slate-600 text-sm md:text-base leading-relaxed text-justify"
+          >
+            <p>
+              Estudio actualmente el <strong>4to semestre</strong> en la Facultad
+              de Educación de la Universidad Nacional de San Antonio Abad del Cusco
+              (UNSAAC), especializándome en pedagogía deportiva. Mi formación combina
+              rigurosamente la teoría educativa con la práctica física, preparándome
+              para los retos de la docencia moderna y la enseñanza de alta calidad.
+            </p>
+
+            <p>
+              Me dedico con pasión a la <strong>promoción de la salud</strong> y el
+              bienestar integral, fomentando estilos de vida activos que combatan
+              el sedentarismo en nuestra comunidad. gestionando grupos y promoviendo
+              valores a través del deporte.
+            </p>
+
+            <p>
+              Mi enfoque se centra en la <strong>didáctica innovadora</strong> y la
+              recreación como herramientas de aprendizaje transformador. Busco convertir
+              la educación física en un espacio de inclusión, desarrollo personal
+              y disciplina para niños, adolescentes y adultos en todo el ámbito de
+              Cusco.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="py-8 md:py-12 bg-slate-50">
+    <div class="container mx-auto px-4 md:px-6 flex flex-col gap-8 md:gap-10">
       <SectionTitle
-        eyebrow="Enfoque pedagógico"
-        title="Movimiento con sentido, experiencias que inspiran a seguir avanzando"
-        subtitle="Trabajo con metodologías activas, evaluación permanente y un acompañamiento cercano para que cada estudiante descubra su potencial físico y emocional."
+        eyebrow="Mi Enfoque"
+        title="Construyendo mi camino profesional en la educación física"
+        subtitle="A través de mis estudios en la UNSAAC, desarrollo competencias para liderar procesos educativos y deportivos de calidad."
       />
       <div class="grid gap-6 md:grid-cols-3">
-        {highlights.map((item) => (
-          <Card hover padding="lg" class="bg-white">
-            <div class="flex flex-col gap-4">
-              <span class="text-4xl" aria-hidden="true">{item.icon}</span>
-              <h3 class="text-xl font-semibold text-slate-900">{item.title}</h3>
-              <p class="text-base text-slate-600">{item.description}</p>
+        {
+          highlights.map((item) => (
+            <div class="group relative flex flex-col gap-4 rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:ring-[#3498db]/30">
+              <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-[#3498db]/10 text-[#3498db] transition-all duration-300 group-hover:bg-[#3498db] group-hover:text-white group-hover:scale-110">
+                <Fragment set:html={item.icon} />
+              </div>
+              <div class="flex flex-col gap-2">
+                <h3 class="text-lg font-bold text-slate-900 group-hover:text-[#3498db] transition-colors">
+                  {item.title}
+                </h3>
+                <p class="text-sm leading-relaxed text-slate-600">
+                  {item.description}
+                </p>
+              </div>
             </div>
-          </Card>
-        ))}
+          ))
+        }
       </div>
     </div>
   </section>
 
-  <section class="section-padding bg-slate-900 text-white">
-    <div class="container grid gap-12 lg:grid-cols-[1fr_1.1fr] lg:items-center">
-      <div class="flex flex-col gap-6">
-        <SectionTitle
-          eyebrow="Proyectos recientes"
-          align="left"
-          title="Formo comunidades activas y saludables"
-          subtitle="Explora mis prácticas profesionales, voluntariados y talleres colaborativos."
-          class="!text-left"
-        />
-        <div class="flex flex-wrap gap-3 text-sm font-semibold text-slate-200">
-          <span class="badge-pill border-white/10 bg-white/5">Entrenamiento juvenil</span>
-          <span class="badge-pill border-white/10 bg-white/5">Educación inclusiva</span>
-          <span class="badge-pill border-white/10 bg-white/5">Salud comunitaria</span>
-        </div>
-        <div class="flex flex-col gap-4 sm:flex-row">
-          <Button href="/experience" size="lg" variant="outline" class="border-white/40 text-white hover:bg-white/10">
-            Ver experiencia completa
-          </Button>
-          <Button href="/skills" size="lg" variant="ghost" class="text-slate-200 hover:bg-white/10">
-            Ver habilidades
-          </Button>
-        </div>
-      </div>
-
-      <Card as="article" padding="lg" class="bg-white text-slate-900">
-        <div class="flex flex-col gap-6">
-          <div class="flex items-center gap-3 text-sm font-semibold text-primary-600">
-            <span class="h-2 w-2 rounded-full bg-primary-500"></span>
-            Sesión destacada · Atletismo juvenil Cusco
-          </div>
-          <h3 class="text-2xl font-bold text-slate-900">
-            Circuito integral: velocidad, coordinación y resiliencia
-          </h3>
-          <p class="text-base text-slate-600">
-            Elaboré un programa de seis estaciones combinando trabajo técnico, retos cooperativos y pausas
-            activas. Evaluamos el progreso semanal con indicadores claros y retroalimentación individual.
+  <section
+    class="pt-8 pb-0 md:pt-12 md:pb-0 bg-slate-50 text-slate-900 px-4 md:px-6"
+  >
+    <div
+      class="container mx-auto overflow-hidden rounded-3xl border border-slate-200 bg-white p-6 shadow-xl shadow-slate-200/50 sm:p-10 lg:p-12"
+    >
+      <div
+        class="grid gap-10 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:items-center"
+      >
+        <div class="flex flex-col gap-8">
+          <SectionTitle
+            eyebrow="Experiencia Académica"
+            align="left"
+            title="Aprendizaje en acción"
+            subtitle="Participación activa en proyectos universitarios, ferias deportivas y voluntariados que complementan mi formación teórica."
+            class="!text-left"
+            titleClass="!text-xl md:!text-2xl"
+          />
+          <p class="max-w-xl text-base text-slate-600">
+            Cada semestre es una oportunidad para aplicar nuevos conocimientos.
+            Me involucro en actividades que promueven el deporte y la salud en
+            la comunidad universitaria y cusqueña.
           </p>
-          <ul class="grid gap-3 text-sm text-slate-600">
-            <li class="flex items-start gap-3">
-              <span class="mt-1 h-2 w-2 rounded-full bg-primary-500"></span>
-              Registro audiovisual para análisis de técnica de carrera.
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="mt-1 h-2 w-2 rounded-full bg-primary-500"></span>
-              Juegos cooperativos para reforzar cohesión grupal y liderazgo.
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="mt-1 h-2 w-2 rounded-full bg-primary-500"></span>
-              Orientaciones de recuperación activa y alimentación post sesión.
-            </li>
-          </ul>
-          <Button href="/contact" size="md" variant="primary" class="w-full">
-            Diseñemos una experiencia para tu institución
-          </Button>
+          <div
+            class="flex flex-wrap gap-2 text-xs font-semibold uppercase tracking-wide text-slate-600 sm:text-sm"
+          >
+            <span class="badge-pill border-slate-200 bg-slate-50 px-4 py-2"
+              >Pedagogía</span
+            >
+            <span class="badge-pill border-slate-200 bg-slate-50 px-4 py-2"
+              >Gestión Deportiva</span
+            >
+            <span class="badge-pill border-slate-200 bg-slate-50 px-4 py-2"
+              >Salud Pública</span
+            >
+          </div>
+          <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
+            <Button
+              href="/experience"
+              size="md"
+              variant="outline"
+              class="w-full sm:w-auto rounded-full border-slate-200 px-6 py-3 text-slate-700 transition hover:border-primary-200 hover:bg-primary-50 hover:text-primary-600"
+            >
+              Ver mis prácticas
+            </Button>
+            <Button
+              href="/skills"
+              size="md"
+              variant="ghost"
+              class="w-full sm:w-auto rounded-full px-6 py-3 text-primary-600 transition hover:bg-primary-50"
+            >
+              Mis habilidades
+            </Button>
+          </div>
         </div>
-      </Card>
+
+        <Card
+          as="article"
+          padding="md"
+          class="mx-auto max-w-xl bg-slate-50 text-slate-900 shadow-sm ring-1 ring-slate-200"
+        >
+          <div class="flex flex-col gap-5">
+            <div
+              class="flex items-center gap-3 text-xs font-semibold uppercase tracking-wide text-primary-600 sm:text-sm"
+            >
+              <span class="h-2 w-2 rounded-full bg-primary-500"></span>
+              Actividad Destacada · UNSAAC
+            </div>
+            <div class="space-y-3">
+              <h3
+                class="text-xl font-bold leading-snug text-slate-900 sm:text-2xl"
+              >
+                Organización de eventos deportivos estudiantiles
+              </h3>
+              <p class="text-sm leading-relaxed text-slate-600 sm:text-base">
+                Colaboración en la planificación y ejecución de campeonatos
+                internos, aplicando fundamentos de administración y gestión
+                deportiva aprendidos en clase.
+              </p>
+            </div>
+            <ul class="grid gap-2.5 text-sm text-slate-600 sm:gap-3">
+              <li class="flex items-start gap-3">
+                <span class="mt-1 h-2 w-2 rounded-full bg-primary-500"></span>
+                Elaboración de fixtures y reglamentos básicos.
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="mt-1 h-2 w-2 rounded-full bg-primary-500"></span>
+                Promoción de valores y juego limpio entre compañeros.
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="mt-1 h-2 w-2 rounded-full bg-primary-500"></span>
+                Logística y coordinación de espacios deportivos.
+              </li>
+            </ul>
+            <Button
+              href="/contact"
+              size="md"
+              variant="primary"
+              class="mt-2 w-full rounded-full px-6 py-3"
+            >
+              Contactar para proyectos
+            </Button>
+          </div>
+        </Card>
+      </div>
     </div>
   </section>
 </BaseLayout>
