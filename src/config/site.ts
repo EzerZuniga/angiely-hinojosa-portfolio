@@ -18,6 +18,7 @@ export const siteConfig = {
   links: {
     email: "mailto:angiely.hinojosa@unsaac.edu.pe",
     facebook: "https://www.facebook.com/angiely.hinojosa",
+    linkedin: "https://www.linkedin.com/in/angiely-hinojosa",
     instagram: "https://www.instagram.com/angiely.fisica",
     whatsapp: "https://wa.me/51999999999",
   },

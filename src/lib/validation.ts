@@ -3,7 +3,7 @@
  * Funciones de validación avanzadas
  */
 
-import type { ContactFormData, FormField } from "@/types";
+import type { ContactFormData } from "@/types";
 import { isValidEmail, isValidPeruvianPhone } from "@/utils/helpers";
 
 /**
