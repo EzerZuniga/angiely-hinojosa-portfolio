@@ -6,7 +6,7 @@ export const siteConfig = {
   title: "Angiely Hinojosa | Educación Física UNSAAC",
   description:
     "Portafolio de Angiely Hinojosa, estudiante de Educación Física en la UNSAAC enfocada en bienestar, deporte y formación integral.",
-  url: "https://angiely-hinojosa.com",
+  url: "https://angiely-hinojosa.vercel.app",
   ogImage: "/images/og-angiely.svg",
   keywords: [
     "Educación Física",
@@ -14,6 +14,11 @@ export const siteConfig = {
     "Entrenamiento deportivo",
     "Bienestar integral",
     "Angiely Hinojosa",
+    "Cusco",
+    "Perú",
+    "Educación deportiva",
+    "Formación física",
+    "Actividad física",
   ],
   links: {
     email: "mailto:angiely.hinojosa@unsaac.edu.pe",

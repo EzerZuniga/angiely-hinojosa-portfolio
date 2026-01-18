@@ -3,8 +3,7 @@ User-agent: *
 Allow: /
 
 # Sitemaps
-Sitemap: https://angiely-hinojosa.com/sitemap-index.xml
-Sitemap: https://angiely-hinojosa.com/sitemap-0.xml
+Sitemap: https://angiely-hinojosa.vercel.app/sitemap-index.xml
 
 # Disallow admin or private areas (if any in the future)
 # Disallow: /admin/
