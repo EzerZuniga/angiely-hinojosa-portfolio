@@ -1,5 +1,5 @@
 ---
-import { siteConfig } from "@config/site";
+import { siteConfig } from '@config/site';
 
 interface Props {
   title?: string;
@@ -17,33 +17,27 @@ const {
 
 const siteOrigin = Astro.site ?? new URL(siteConfig.url);
 const canonicalURL = new URL(Astro.url.pathname, siteOrigin).toString();
-const socialImageURL = image.startsWith("http")
-  ? image
-  : new URL(image, siteOrigin).toString();
+const socialImageURL = image.startsWith('http') ? image : new URL(image, siteOrigin).toString();
 
 // Schema.org structured data
 const schema = {
-  "@context": "https://schema.org",
-  "@type": "Person",
+  '@context': 'https://schema.org',
+  '@type': 'Person',
   name: siteConfig.name,
   jobTitle: siteConfig.role,
   worksFor: {
-    "@type": "EducationalOrganization",
+    '@type': 'EducationalOrganization',
     name: siteConfig.institution,
   },
   address: {
-    "@type": "PostalAddress",
-    addressLocality: "Cusco",
-    addressCountry: "PE",
+    '@type': 'PostalAddress',
+    addressLocality: 'Cusco',
+    addressCountry: 'PE',
   },
   url: siteConfig.url,
   image: socialImageURL,
-  sameAs: [
-    siteConfig.links.linkedin,
-    siteConfig.links.facebook,
-    siteConfig.links.instagram,
-  ],
-  email: siteConfig.links.email.replace("mailto:", ""),
+  sameAs: [siteConfig.links.linkedin, siteConfig.links.facebook, siteConfig.links.instagram],
+  email: siteConfig.links.email.replace('mailto:', ''),
   description: description,
 };
 ---
@@ -57,14 +51,14 @@ const schema = {
 <meta name="title" content={title} />
 <meta name="description" content={description} />
 <link rel="canonical" href={canonicalURL} />
-<meta name="keywords" content={siteConfig.keywords?.join(", ")} />
+<meta name="keywords" content={siteConfig.keywords?.join(', ')} />
 <meta name="author" content={siteConfig.name} />
 <meta name="geo.placename" content={siteConfig.location} />
 <meta name="robots" content="index, follow" />
 <meta name="language" content="Spanish" />
 
 <!-- Open Graph / Facebook -->
-<meta property="og:type" content={article ? "article" : "website"} />
+<meta property="og:type" content={article ? 'article' : 'website'} />
 <meta property="og:url" content={canonicalURL} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
@@ -98,7 +92,7 @@ const schema = {
 <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
 
 <!-- Schema.org JSON-LD -->
-<script type="application/ld+json" set:html={JSON.stringify(schema)} />
+<script is:inline type="application/ld+json" set:html={JSON.stringify(schema)} />
 
 <!-- Sitemap -->
 <link rel="sitemap" href="/sitemap-index.xml" />

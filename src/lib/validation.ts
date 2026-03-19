@@ -3,8 +3,8 @@
  * Funciones de validación avanzadas
  */
 
-import type { ContactFormData } from "@/types";
-import { isValidEmail, isValidPeruvianPhone } from "@/utils/helpers";
+import type { ContactFormData } from '@/types';
+import { isValidEmail, isValidPeruvianPhone } from '@/utils/helpers';
 
 /**
  * Errores de validación
@@ -33,54 +33,54 @@ export function validateContactForm(data: ContactFormData): ValidationResult {
   // Validar nombre
   if (!data.name || data.name.trim().length < 2) {
     errors.push({
-      field: "name",
-      message: "El nombre debe tener al menos 2 caracteres",
+      field: 'name',
+      message: 'El nombre debe tener al menos 2 caracteres',
     });
   }
 
   if (data.name && data.name.length > 100) {
     errors.push({
-      field: "name",
-      message: "El nombre no puede exceder 100 caracteres",
+      field: 'name',
+      message: 'El nombre no puede exceder 100 caracteres',
     });
   }
 
   // Validar email
   if (!data.email || !isValidEmail(data.email)) {
     errors.push({
-      field: "email",
-      message: "Email inválido",
+      field: 'email',
+      message: 'Email inválido',
     });
   }
 
   // Validar teléfono (opcional)
   if (data.phone && !isValidPeruvianPhone(data.phone)) {
     errors.push({
-      field: "phone",
-      message: "Teléfono inválido. Formato: +51999999999 o 999999999",
+      field: 'phone',
+      message: 'Teléfono inválido. Formato: +51999999999 o 999999999',
     });
   }
 
   // Validar servicio
-  if (!data.service || data.service.trim() === "") {
+  if (!data.service || data.service.trim() === '') {
     errors.push({
-      field: "service",
-      message: "Debes seleccionar un servicio",
+      field: 'service',
+      message: 'Debes seleccionar un servicio',
     });
   }
 
   // Validar mensaje
   if (!data.message || data.message.trim().length < 10) {
     errors.push({
-      field: "message",
-      message: "El mensaje debe tener al menos 10 caracteres",
+      field: 'message',
+      message: 'El mensaje debe tener al menos 10 caracteres',
     });
   }
 
   if (data.message && data.message.length > 1000) {
     errors.push({
-      field: "message",
-      message: "El mensaje no puede exceder 1000 caracteres",
+      field: 'message',
+      message: 'El mensaje no puede exceder 1000 caracteres',
     });
   }
 
@@ -98,9 +98,9 @@ export function validateContactForm(data: ContactFormData): ValidationResult {
 export function sanitizeInput(input: string): string {
   return input
     .trim()
-    .replace(/[<>]/g, "") // Remover < y >
-    .replace(/javascript:/gi, "") // Remover javascript:
-    .replace(/on\w+=/gi, ""); // Remover event handlers
+    .replace(/[<>]/g, '') // Remover < y >
+    .replace(/javascript:/gi, '') // Remover javascript:
+    .replace(/on\w+=/gi, ''); // Remover event handlers
 }
 
 /**

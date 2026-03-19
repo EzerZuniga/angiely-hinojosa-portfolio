@@ -8,31 +8,31 @@
 // ============================================================================
 
 export const NAV_ITEMS = [
-  { name: "Inicio", href: "/" },
-  { name: "Sobre mí", href: "/about" },
-  { name: "Experiencia", href: "/experience" },
-  { name: "Habilidades", href: "/skills" },
-  { name: "Contacto", href: "/contact" },
+  { name: 'Inicio', href: '/' },
+  { name: 'Sobre mí', href: '/about' },
+  { name: 'Experiencia', href: '/experience' },
+  { name: 'Habilidades', href: '/skills' },
+  { name: 'Contacto', href: '/contact' },
 ] as const;
 
 // ============================================================================
 // SEO
 // ============================================================================
 
-export const DEFAULT_OG_IMAGE = "/images/og-angiely.svg";
-export const DEFAULT_LOCALE = "es_ES";
-export const DEFAULT_LANGUAGE = "es";
+export const DEFAULT_OG_IMAGE = '/images/og-angiely.svg';
+export const DEFAULT_LOCALE = 'es_ES';
+export const DEFAULT_LANGUAGE = 'es';
 
 // ============================================================================
 // SOCIAL MEDIA
 // ============================================================================
 
 export const SOCIAL_PLATFORMS = {
-  EMAIL: "email",
-  LINKEDIN: "linkedin",
-  INSTAGRAM: "instagram",
-  WHATSAPP: "whatsapp",
-  CV: "cv",
+  EMAIL: 'email',
+  LINKEDIN: 'linkedin',
+  INSTAGRAM: 'instagram',
+  WHATSAPP: 'whatsapp',
+  CV: 'cv',
 } as const;
 
 // ============================================================================
@@ -40,17 +40,17 @@ export const SOCIAL_PLATFORMS = {
 // ============================================================================
 
 export const CONTACT_SERVICES = [
-  "Asesoría personalizada",
-  "Talleres grupales",
-  "Sesiones de entrenamiento",
-  "Programa educativo",
-  "Consulta general",
+  'Asesoría personalizada',
+  'Talleres grupales',
+  'Sesiones de entrenamiento',
+  'Programa educativo',
+  'Consulta general',
 ] as const;
 
 export const FORM_VALIDATION_MESSAGES = {
-  REQUIRED: "Este campo es obligatorio",
-  INVALID_EMAIL: "Email inválido",
-  INVALID_PHONE: "Teléfono inválido",
+  REQUIRED: 'Este campo es obligatorio',
+  INVALID_EMAIL: 'Email inválido',
+  INVALID_PHONE: 'Teléfono inválido',
   MIN_LENGTH: (min: number) => `Mínimo ${min} caracteres`,
   MAX_LENGTH: (max: number) => `Máximo ${max} caracteres`,
 } as const;
@@ -60,10 +60,10 @@ export const FORM_VALIDATION_MESSAGES = {
 // ============================================================================
 
 export const SKILL_LEVELS = {
-  BASICO: "Básico",
-  INTERMEDIO: "Intermedio",
-  AVANZADO: "Avanzado",
-  EXPERTO: "Experto",
+  BASICO: 'Básico',
+  INTERMEDIO: 'Intermedio',
+  AVANZADO: 'Avanzado',
+  EXPERTO: 'Experto',
 } as const;
 
 // ============================================================================
@@ -75,7 +75,7 @@ export const BREAKPOINTS = {
   MD: 768,
   LG: 1024,
   XL: 1280,
-  "2XL": 1536,
+  '2XL': 1536,
 } as const;
 
 // ============================================================================
@@ -104,9 +104,9 @@ export const CONTENT_LIMITS = {
 // ============================================================================
 
 export const EXTERNAL_LINKS = {
-  UNSAAC: "https://www.unsaac.edu.pe",
-  MINEDU: "https://www.minedu.gob.pe",
-  GITHUB: "https://github.com/EzerZuniga/angiely-hinojosa-portfolio",
+  UNSAAC: 'https://www.unsaac.edu.pe',
+  MINEDU: 'https://www.minedu.gob.pe',
+  GITHUB: 'https://github.com/EzerZuniga/angiely-hinojosa-portfolio',
 } as const;
 
 // ============================================================================
@@ -115,15 +115,15 @@ export const EXTERNAL_LINKS = {
 
 export const COLORS = {
   PRIMARY: {
-    50: "#f0f9ff",
-    100: "#e0f2fe",
-    200: "#bae6fd",
-    300: "#7dd3fc",
-    400: "#38bdf8",
-    500: "#0ea5e9",
-    600: "#0284c7",
-    700: "#0369a1",
-    800: "#075985",
-    900: "#0c4a6e",
+    50: '#f0f9ff',
+    100: '#e0f2fe',
+    200: '#bae6fd',
+    300: '#7dd3fc',
+    400: '#38bdf8',
+    500: '#0ea5e9',
+    600: '#0284c7',
+    700: '#0369a1',
+    800: '#075985',
+    900: '#0c4a6e',
   },
 } as const;

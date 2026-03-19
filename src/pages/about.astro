@@ -42,12 +42,14 @@ const milestones = [
 ];
 
 const aboutSubtitle = `Soy ${siteConfig.name}, estudiante de Educación Física en la UNSAAC. Mi propósito es acompañar procesos educativos y deportivos con calidez humana, metodología activa y enfoque inclusivo.`;
-
 ---
 
-<BaseLayout title="Sobre mí | Angiely Hinojosa" description="Conoce la historia, propósito y formación de Angiely Hinojosa, estudiante de Educación Física UNSAAC enfocada en bienestar integral.">
+<BaseLayout
+  title="Sobre mí | Angiely Hinojosa"
+  description="Conoce la historia, propósito y formación de Angiely Hinojosa, estudiante de Educación Física UNSAAC enfocada en bienestar integral."
+>
   <section class="section-padding">
-    <div class="container grid gap-10 md:grid-cols-[1.1fr_0.9fr] md:items-center">
+    <div class="container grid gap-8 md:gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
       <div class="flex flex-col gap-6">
         <SectionTitle
           eyebrow="Sobre mí"
@@ -58,13 +60,15 @@ const aboutSubtitle = `Soy ${siteConfig.name}, estudiante de Educación Física 
         />
         <div class="prose-primary space-y-4 text-slate-600">
           <p>
-            Mi historia está ligada al deporte desde la infancia. En la universidad profundicé en fisiología del ejercicio,
-            psicomotricidad y metodologías activas. Hoy combino esa formación con voluntariados, programas comunitarios y
-            asesorías personalizadas para diferentes edades y contextos.
+            Mi historia está ligada al deporte desde la infancia. En la universidad profundicé en
+            fisiología del ejercicio, psicomotricidad y metodologías activas. Hoy combino esa
+            formación con voluntariados, programas comunitarios y asesorías personalizadas para
+            diferentes edades y contextos.
           </p>
           <p>
-            Disfruto crear ambientes seguros donde cada persona se sienta capaz de explorar, jugar y retarse. Creo en el
-            feedback constante, en las metas alcanzables y en la celebración de cada avance, por pequeño que sea.
+            Disfruto crear ambientes seguros donde cada persona se sienta capaz de explorar, jugar y
+            retarse. Creo en el feedback constante, en las metas alcanzables y en la celebración de
+            cada avance, por pequeño que sea.
           </p>
         </div>
         <div class="flex flex-col gap-3 text-sm font-semibold text-slate-500">
@@ -83,22 +87,30 @@ const aboutSubtitle = `Soy ${siteConfig.name}, estudiante de Educación Física 
       </div>
 
       <Card padding="lg" class="relative overflow-hidden bg-white">
-        <div class="absolute -top-10 right-10 h-28 w-28 rounded-full bg-primary-200/60 blur-3xl"></div>
+        <div class="absolute -top-10 right-10 h-28 w-28 rounded-full bg-primary-200/60 blur-3xl">
+        </div>
         <div class="relative flex flex-col items-center gap-6 text-center">
-          <div class="flex h-40 w-40 items-center justify-center rounded-full bg-gradient-to-br from-primary-500 to-emerald-500 text-5xl font-black text-white shadow-glow">
+          <div
+            class="flex h-40 w-40 items-center justify-center rounded-full bg-gradient-to-br from-primary-500 to-emerald-500 text-5xl font-black text-white shadow-glow"
+          >
             AH
           </div>
           <h2 class="text-2xl font-bold text-slate-900">Movimiento que inspira</h2>
           <p class="text-base text-slate-600">
-            Lidero sesiones de entrenamiento, clases escolares y talleres donde el protagonismo siempre lo tienen las personas.
-            Planifico con objetivos claros, indicadores medibles y espacios de reflexión.
+            Lidero sesiones de entrenamiento, clases escolares y talleres donde el protagonismo
+            siempre lo tienen las personas. Planifico con objetivos claros, indicadores medibles y
+            espacios de reflexión.
           </p>
           <div class="grid w-full gap-4 text-sm">
-            <div class="flex items-center justify-between rounded-2xl border border-primary-100 bg-primary-50/70 px-4 py-3 text-primary-600">
+            <div
+              class="flex items-center justify-between rounded-2xl border border-primary-100 bg-primary-50/70 px-4 py-3 text-primary-600"
+            >
               <span>Certificación RCP · Cruz Roja</span>
               <span class="rounded-full bg-white/90 px-3 py-1 text-xs font-semibold">2024</span>
             </div>
-            <div class="flex items-center justify-between rounded-2xl border border-primary-100 bg-primary-50/70 px-4 py-3 text-primary-600">
+            <div
+              class="flex items-center justify-between rounded-2xl border border-primary-100 bg-primary-50/70 px-4 py-3 text-primary-600"
+            >
               <span>Entrenamiento Funcional</span>
               <span class="rounded-full bg-white/90 px-3 py-1 text-xs font-semibold">2024</span>
             </div>
@@ -117,12 +129,14 @@ const aboutSubtitle = `Soy ${siteConfig.name}, estudiante de Educación Física 
         subtitle="Acompaño procesos con empatía, ética y mirada integral."
       />
       <div class="grid gap-6 md:grid-cols-3">
-        {values.map((value) => (
-          <Card hover padding="lg" class="bg-white/10 p-8 text-left">
-            <h3 class="text-xl font-semibold text-white">{value.title}</h3>
-            <p class="mt-3 text-base text-slate-200">{value.body}</p>
-          </Card>
-        ))}
+        {
+          values.map((value) => (
+            <Card hover padding="lg" class="bg-white/10 p-8 text-left">
+              <h3 class="text-xl font-semibold text-white">{value.title}</h3>
+              <p class="mt-3 text-base text-slate-200">{value.body}</p>
+            </Card>
+          ))
+        }
       </div>
     </div>
   </section>
@@ -135,15 +149,19 @@ const aboutSubtitle = `Soy ${siteConfig.name}, estudiante de Educación Física 
         title="Cada paso suma al sueño de transformar vidas a través del movimiento"
       />
       <div class="grid gap-6 md:grid-cols-3">
-        {milestones.map((milestone) => (
-          <Card padding="lg" hover class="bg-white">
-            <div class="flex flex-col gap-4">
-              <span class="text-sm font-semibold uppercase tracking-[0.3em] text-primary-500">{milestone.year}</span>
-              <h3 class="text-xl font-semibold text-slate-900">{milestone.title}</h3>
-              <p class="text-base text-slate-600">{milestone.description}</p>
-            </div>
-          </Card>
-        ))}
+        {
+          milestones.map((milestone) => (
+            <Card padding="lg" hover class="bg-white">
+              <div class="flex flex-col gap-4">
+                <span class="text-sm font-semibold uppercase tracking-[0.3em] text-primary-500">
+                  {milestone.year}
+                </span>
+                <h3 class="text-xl font-semibold text-slate-900">{milestone.title}</h3>
+                <p class="text-base text-slate-600">{milestone.description}</p>
+              </div>
+            </Card>
+          ))
+        }
       </div>
     </div>
   </section>

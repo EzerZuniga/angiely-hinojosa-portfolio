@@ -5,8 +5,8 @@ interface Props {
   width?: number;
   height?: number;
   class?: string;
-  loading?: "lazy" | "eager";
-  decoding?: "async" | "auto" | "sync";
+  loading?: 'lazy' | 'eager';
+  decoding?: 'async' | 'auto' | 'sync';
   sizes?: string;
 }
 
@@ -15,13 +15,13 @@ const {
   alt,
   width,
   height,
-  class: className = "",
-  loading = "lazy",
-  decoding = "async",
+  class: className = '',
+  loading = 'lazy',
+  decoding = 'async',
   sizes,
 } = Astro.props as Props;
 
-if (!alt || alt.trim() === "") {
+if (!alt || alt.trim() === '') {
   console.warn(`Warning: missing alt text for image: ${src}`);
 }
 ---

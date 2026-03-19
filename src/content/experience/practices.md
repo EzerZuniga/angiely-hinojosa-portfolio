@@ -1,11 +1,18 @@
 ---
-title: "Prácticas y voluntariados"
-date: "2025-01-05"
+title: 'Prácticas y voluntariados'
+role: 'Asistente de Preparación Física'
+organization: 'Centro de Alto Rendimiento Cusco'
+period: '2024 - Presente'
+location: 'Cusco, Perú'
+date: '2025-01-05'
+order: 3
+tags: ['Preparación Física', 'Atletismo', 'Voluntariado']
 ---
 
 # Prácticas y voluntariados
 
 ## Centro de Alto Rendimiento Cusco - Asistente de preparación física
+
 **Octubre 2024 - Presente**
 
 En el CAR Cusco acompaño a la selección juvenil de atletismo en:
@@ -16,6 +23,7 @@ En el CAR Cusco acompaño a la selección juvenil de atletismo en:
 - Registro y análisis de cargas con tablas RPE y reportes para el equipo multidisciplinario.
 
 ## Colegio Experimental UNSAAC - Facilitadora de educación física escolar
+
 **Marzo 2024 - Agosto 2024**
 
 Durante mis prácticas preprofesionales desarrollé:

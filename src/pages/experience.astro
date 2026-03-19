@@ -15,9 +15,7 @@ type EnrichedExperience = MarkdownInstance<ExperienceFrontmatter> & {
   displayDate: string;
 };
 
-const experienceEntries = await Astro.glob<ExperienceFrontmatter>(
-  '../content/experience/*.md',
-);
+const experienceEntries = await Astro.glob<ExperienceFrontmatter>('../content/experience/*.md');
 const dateFormatter = new Intl.DateTimeFormat('es-PE', {
   month: 'long',
   year: 'numeric',
@@ -49,14 +47,14 @@ const focusAreas: FocusArea[] = [
   },
   {
     title: 'Educación física inclusiva',
-    detail: 'Adaptación de sesiones para diversos ritmos de aprendizaje, promoviendo el juego cooperativo.',
+    detail:
+      'Adaptación de sesiones para diversos ritmos de aprendizaje, promoviendo el juego cooperativo.',
   },
   {
     title: 'Salud y hábitos comunitarios',
     detail: 'Festivales, caminatas saludables y talleres familiares sobre nutrición y bienestar.',
   },
 ];
-
 ---
 
 <BaseLayout
@@ -71,13 +69,15 @@ const focusAreas: FocusArea[] = [
         subtitle="Integro evaluaciones funcionales, estrategias cooperativas y acompañamiento cercano para construir procesos sostenibles."
       />
 
-      <div class="grid gap-6 md:grid-cols-3">
-        {focusAreas.map((item: FocusArea) => (
-          <Card hover padding="lg" class="bg-white">
-            <h3 class="text-xl font-semibold text-slate-900">{item.title}</h3>
-            <p class="mt-3 text-base text-slate-600">{item.detail}</p>
-          </Card>
-        ))}
+      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {
+          focusAreas.map((item: FocusArea) => (
+            <Card hover padding="lg" class="bg-white">
+              <h3 class="text-xl font-semibold text-slate-900">{item.title}</h3>
+              <p class="mt-3 text-base text-slate-600">{item.detail}</p>
+            </Card>
+          ))
+        }
       </div>
     </div>
   </section>
@@ -93,24 +93,31 @@ const focusAreas: FocusArea[] = [
       />
 
       <div class="grid gap-6">
-        {experiences.map(({ frontmatter, Content, displayDate }: EnrichedExperience) => (
-          <Card as="article" padding="lg" class="bg-white text-slate-900">
-            <div class="flex flex-col gap-6 md:flex-row md:items-start">
-              <div class="flex w-full flex-col gap-2 md:w-48">
-                <span class="text-sm font-semibold uppercase tracking-[0.3em] text-primary-500">
-                  {displayDate}
-                </span>
-                <h3 class="text-2xl font-bold text-slate-900">{frontmatter.title}</h3>
+        {
+          experiences.map(({ frontmatter, Content, displayDate }: EnrichedExperience) => (
+            <Card as="article" padding="lg" class="bg-white text-slate-900">
+              <div class="flex flex-col gap-6 md:flex-row md:items-start">
+                <div class="flex w-full flex-col gap-2 md:w-48">
+                  <span class="text-sm font-semibold uppercase tracking-[0.3em] text-primary-500">
+                    {displayDate}
+                  </span>
+                  <h3 class="text-2xl font-bold text-slate-900">{frontmatter.title}</h3>
+                </div>
+                <div class="prose-primary flex-1 text-slate-600">
+                  <Content />
+                </div>
               </div>
-              <div class="prose-primary flex-1 text-slate-600">
-                <Content />
-              </div>
-            </div>
-          </Card>
-        ))}
+            </Card>
+          ))
+        }
       </div>
 
-      <Button href="/contact" size="lg" variant="outline" class="self-start border-white/40 text-white hover:bg-white/10">
+      <Button
+        href="/contact"
+        size="lg"
+        variant="outline"
+        class="self-start border-white/40 text-white hover:bg-white/10"
+      >
         Coordinar un proyecto deportivo o educativo
       </Button>
     </div>

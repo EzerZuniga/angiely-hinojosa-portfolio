@@ -1,12 +1,12 @@
 ---
-title: "Asistente CAR Cusco"
-role: "Asistente de Entrenamiento Deportivo"
-organization: "Centro de Alto Rendimiento Cusco"
-period: "2025 - Presente"
-location: "Cusco, Perú"
-date: "2025-01-01"
+title: 'Asistente CAR Cusco'
+role: 'Asistente de Entrenamiento Deportivo'
+organization: 'Centro de Alto Rendimiento Cusco'
+period: '2025 - Presente'
+location: 'Cusco, Perú'
+date: '2025-01-01'
 order: 1
-tags: ["Entrenamiento", "Alto Rendimiento", "Atletismo"]
+tags: ['Entrenamiento', 'Alto Rendimiento', 'Atletismo']
 ---
 
 ## Asistente en el Centro de Alto Rendimiento Cusco

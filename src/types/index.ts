@@ -34,11 +34,11 @@ export interface SocialLinks {
 // ============================================================================
 
 export interface ButtonProps {
-  variant?: "primary" | "secondary" | "outline" | "ghost";
-  size?: "sm" | "md" | "lg" | "xl";
+  variant?: 'primary' | 'secondary' | 'outline' | 'ghost';
+  size?: 'sm' | 'md' | 'lg' | 'xl';
   href?: string;
   class?: string;
-  type?: "button" | "submit" | "reset";
+  type?: 'button' | 'submit' | 'reset';
   external?: boolean;
   fullWidth?: boolean;
 }
@@ -46,15 +46,15 @@ export interface ButtonProps {
 export interface CardProps {
   class?: string;
   hover?: boolean;
-  as?: "div" | "article" | "section";
-  padding?: "none" | "sm" | "md" | "lg";
+  as?: 'div' | 'article' | 'section';
+  padding?: 'none' | 'sm' | 'md' | 'lg';
 }
 
 export interface SectionTitleProps {
   eyebrow?: string;
   title: string;
   subtitle?: string;
-  align?: "left" | "center";
+  align?: 'left' | 'center';
   class?: string;
 }
 
@@ -111,7 +111,7 @@ export interface SkillGroup {
 
 export interface Skill {
   name: string;
-  level: "Básico" | "Intermedio" | "Avanzado" | "Experto";
+  level: 'Básico' | 'Intermedio' | 'Avanzado' | 'Experto';
   description?: string;
 }
 
@@ -160,7 +160,7 @@ export interface ContactFormData {
 export interface FormField {
   name: string;
   label: string;
-  type: "text" | "email" | "tel" | "textarea" | "select";
+  type: 'text' | 'email' | 'tel' | 'textarea' | 'select';
   required: boolean;
   placeholder?: string;
   options?: string[];

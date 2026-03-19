@@ -1,12 +1,12 @@
 ---
-title: "Prácticas UNSAAC"
-role: "Practicante de Educación Física"
-organization: "Colegio Experimental de la UNSAAC"
-period: "2024"
-location: "Cusco, Perú"
-date: "2024-01-01"
+title: 'Prácticas UNSAAC'
+role: 'Practicante de Educación Física'
+organization: 'Colegio Experimental de la UNSAAC'
+period: '2024'
+location: 'Cusco, Perú'
+date: '2024-01-01'
 order: 2
-tags: ["Educación", "Primaria", "Metodologías Activas"]
+tags: ['Educación', 'Primaria', 'Metodologías Activas']
 ---
 
 ## Prácticas en el Colegio Experimental de la UNSAAC

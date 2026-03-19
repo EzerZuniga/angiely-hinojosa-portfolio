@@ -3,14 +3,14 @@
  * Define los esquemas y validaciones para el contenido markdown
  */
 
-import { defineCollection, z } from "astro:content";
+import { defineCollection, z } from 'astro:content';
 
 // ============================================================================
 // CERTIFICATES COLLECTION
 // ============================================================================
 
 const certificatesCollection = defineCollection({
-  type: "content",
+  type: 'content',
   schema: z.object({
     title: z.string(),
     date: z.string().or(z.date()),
@@ -28,7 +28,7 @@ const certificatesCollection = defineCollection({
 // ============================================================================
 
 const experienceCollection = defineCollection({
-  type: "content",
+  type: 'content',
   schema: z.object({
     title: z.string(),
     role: z.string(),
@@ -48,7 +48,7 @@ const experienceCollection = defineCollection({
 // ============================================================================
 
 const projectsCollection = defineCollection({
-  type: "content",
+  type: 'content',
   schema: z.object({
     title: z.string(),
     description: z.string(),

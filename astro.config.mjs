@@ -1,13 +1,13 @@
-import { defineConfig } from "astro/config";
-import tailwind from "@astrojs/tailwind";
-import sitemap from "@astrojs/sitemap";
+import { defineConfig } from 'astro/config';
+import tailwind from '@astrojs/tailwind';
+import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
   integrations: [tailwind(), sitemap()],
-  site: "https://angiely-hinojosa.vercel.app",
-  trailingSlash: "ignore",
+  site: 'https://angiely-hinojosa.vercel.app',
+  trailingSlash: 'ignore',
   build: {
-    inlineStylesheets: "auto",
+    inlineStylesheets: 'auto',
   },
   compressHTML: true,
 });

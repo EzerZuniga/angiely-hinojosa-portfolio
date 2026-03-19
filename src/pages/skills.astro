@@ -13,7 +13,10 @@ const skillGroups = [
     emphasis: 'Velocidad · Fuerza · Resistencia · Flexibilidad',
     items: [
       { name: 'Planificación de microciclos', level: 'Avanzado' },
-      { name: 'Evaluaciones funcionales (Cooper, Course Navette, salto)', level: 'Avanzado' },
+      {
+        name: 'Evaluaciones funcionales (Cooper, Course Navette, salto)',
+        level: 'Avanzado',
+      },
       { name: 'Prevención de lesiones', level: 'Intermedio' },
     ],
   },
@@ -49,14 +52,23 @@ const skillGroups = [
 const methodologies = [
   {
     title: 'Diseño de sesiones',
-    steps: ['Diagnóstico inicial', 'Objetivos SMART', 'Selección de métodos activos', 'Evaluación formativa'],
+    steps: [
+      'Diagnóstico inicial',
+      'Objetivos SMART',
+      'Selección de métodos activos',
+      'Evaluación formativa',
+    ],
   },
   {
     title: 'Acompañamiento a equipos',
-    steps: ['Análisis de contexto', 'Plan semanal compartido', 'Retroalimentación inmediata', 'Reporte de progreso mensual'],
+    steps: [
+      'Análisis de contexto',
+      'Plan semanal compartido',
+      'Retroalimentación inmediata',
+      'Reporte de progreso mensual',
+    ],
   },
 ];
-
 ---
 
 <BaseLayout
@@ -71,27 +83,31 @@ const methodologies = [
         subtitle="Combino conocimientos técnicos en entrenamiento con metodologías activas y habilidades socioemocionales."
       />
 
-      <div class="grid gap-6 md:grid-cols-2">
-        {skillGroups.map((group) => (
-          <Card hover padding="lg" class="bg-white">
-            <div class="flex flex-col gap-4">
-              <div>
-                <h3 class="text-xl font-semibold text-slate-900">{group.category}</h3>
-                <p class="text-sm font-medium uppercase tracking-[0.3em] text-primary-500">{group.emphasis}</p>
+      <div class="grid gap-6 sm:grid-cols-2">
+        {
+          skillGroups.map((group) => (
+            <Card hover padding="lg" class="bg-white">
+              <div class="flex flex-col gap-4">
+                <div>
+                  <h3 class="text-xl font-semibold text-slate-900">{group.category}</h3>
+                  <p class="text-sm font-medium uppercase tracking-[0.3em] text-primary-500">
+                    {group.emphasis}
+                  </p>
+                </div>
+                <ul class="flex flex-col gap-3 text-sm text-slate-600">
+                  {group.items.map((item) => (
+                    <li class="flex items-center justify-between rounded-2xl border border-slate-200 px-4 py-3">
+                      <span>{item.name}</span>
+                      <span class="rounded-full bg-primary-50 px-3 py-1 text-xs font-semibold text-primary-600">
+                        {item.level}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
               </div>
-              <ul class="flex flex-col gap-3 text-sm text-slate-600">
-                {group.items.map((item) => (
-                  <li class="flex items-center justify-between rounded-2xl border border-slate-200 px-4 py-3">
-                    <span>{item.name}</span>
-                    <span class="rounded-full bg-primary-50 px-3 py-1 text-xs font-semibold text-primary-600">
-                      {item.level}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </Card>
-        ))}
+            </Card>
+          ))
+        }
       </div>
     </div>
   </section>
@@ -107,28 +123,31 @@ const methodologies = [
           class="!text-left"
         />
         <div class="grid gap-6">
-          {methodologies.map((method) => (
-            <Card padding="lg" class="bg-white/10 text-left">
-              <h3 class="text-lg font-semibold text-white">{method.title}</h3>
-              <ol class="mt-4 space-y-3 text-sm text-slate-200">
-                {method.steps.map((step, index) => (
-                  <li class="flex items-start gap-3">
-                    <span class="flex h-7 w-7 items-center justify-center rounded-full bg-white/10 text-xs font-semibold text-primary-200">
-                      {String(index + 1).padStart(2, '0')}
-                    </span>
-                    <span>{step}</span>
-                  </li>
-                ))}
-              </ol>
-            </Card>
-          ))}
+          {
+            methodologies.map((method) => (
+              <Card padding="lg" class="bg-white/10 text-left">
+                <h3 class="text-lg font-semibold text-white">{method.title}</h3>
+                <ol class="mt-4 space-y-3 text-sm text-slate-200">
+                  {method.steps.map((step, index) => (
+                    <li class="flex items-start gap-3">
+                      <span class="flex h-7 w-7 items-center justify-center rounded-full bg-white/10 text-xs font-semibold text-primary-200">
+                        {String(index + 1).padStart(2, '0')}
+                      </span>
+                      <span>{step}</span>
+                    </li>
+                  ))}
+                </ol>
+              </Card>
+            ))
+          }
         </div>
       </div>
 
       <Card padding="lg" class="bg-white text-slate-900">
         <h3 class="text-xl font-semibold text-slate-900">Certificaciones y cursos clave</h3>
         <p class="mt-2 text-sm text-slate-600">
-          Actualizo constantemente mis conocimientos para ofrecer experiencias seguras, motivadoras y basadas en evidencia.
+          Actualizo constantemente mis conocimientos para ofrecer experiencias seguras, motivadoras
+          y basadas en evidencia.
         </p>
         <div class="mt-6 max-h-[28rem] space-y-4 overflow-y-auto pr-2 text-sm text-slate-600">
           {CertificateContent && <CertificateContent />}
